@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-primary: #CC1414;
+  --color-blue:    #1040A0;
+  --color-accent:  #FFD700;
+  --color-bg:      #0A0F1E;
+  --color-surface: #111827;
+  --color-fg:      #F8FAFC;
+  --color-muted:   #7B8DB0;
+  --color-border:  #1E2D50;
+  --color-destructive: #EF4444;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Manga dot halftone background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, #1E3A6022 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 0.03em;
+}
+
+/* Manga text outline — used on big phase labels */
+.manga-outline {
+  -webkit-text-stroke: 4px #000;
+  paint-order: stroke fill;
+}
+.manga-outline-sm {
+  -webkit-text-stroke: 2px #000;
+  paint-order: stroke fill;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none; margin: 0;
+}
+input[type=number] { -moz-appearance: textfield; appearance: textfield; }
+
+@keyframes countdown-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.countdown-flash { animation: countdown-flash 0.45s ease-in-out infinite; }
+
+@keyframes ippo-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px) rotate(-1deg); }
+  75% { transform: translateX(3px) rotate(1deg); }
+}
+.ippo-shake { animation: ippo-shake 0.15s ease-in-out 3; }
